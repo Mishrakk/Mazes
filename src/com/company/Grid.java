@@ -24,5 +24,9 @@ public class Grid {
             }
         }
     }
+
+    public Cell GetCellAt(int x, int y){
+        return x < 0 || x == Width || y < 0 || y == Height ? null : CellsGrid[x][y];
+    }
 }
 

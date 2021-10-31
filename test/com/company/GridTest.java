@@ -17,5 +17,11 @@ public class GridTest {
         Assert.assertNotNull("East neighbor is null", grid.CellsGrid[1][1].East);
         Assert.assertNotNull("West neighbor is null", grid.CellsGrid[1][1].West);
     }
+    @Test
+    public void TestGetCellAt(){
+        Grid grid = new Grid(10, 10);
+        Assert.assertEquals("Different cell is returned",grid.GetCellAt(1,1), grid.CellsGrid[1][1]);
+        Assert.assertNull("Outside of bounds we should get null", grid.GetCellAt(-1, -1));
+    }
 }
 
