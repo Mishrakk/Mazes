@@ -17,6 +17,12 @@ public class Cell {
         Links = new HashMap<Cell, Boolean>();
     }
 
+    public void LinkCell(Cell linkedCell)
+    {
+        Links.put(linkedCell, true);
+        linkedCell.Links.put(this, true);
+    }
+
     public boolean Linked(Cell linkedCell)
     {
         return Links.getOrDefault(linkedCell, false);

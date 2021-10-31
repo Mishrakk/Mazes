@@ -19,5 +19,14 @@ public class CellTest {
         cellA.Links.put(cellB, true);
         Assert.assertTrue("Linked function reports false", cellA.Linked(cellB));
     }
+    @Test
+    public void testLinkCells(){
+        Cell cellA = new Cell(1,2);
+        Cell cellB = new Cell(3,4);
+        cellA.LinkCell(cellB);
+        Assert.assertTrue("Cells A is not linked to B", cellA.Linked(cellB));
+        Assert.assertTrue("Cells B is not linked to A", cellB.Linked(cellA));
+    }
 }
+
 
