@@ -34,7 +34,7 @@ public class GridTest {
                 |   |   |
                 +---+---+
                 """;
-        Assert.assertEquals(expectedOutput, grid.ToString());
+        Assert.assertEquals(expectedOutput, grid.toString());
     }
 }
 
