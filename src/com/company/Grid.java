@@ -28,5 +28,28 @@ public class Grid {
     public Cell GetCellAt(int x, int y){
         return x < 0 || x == Width || y < 0 || y == Height ? null : CellsGrid[x][y];
     }
+
+    public String ToString()
+    {
+        StringBuilder output = new StringBuilder("+" + "---+".repeat(Height) + "\n");
+
+        for (int y = 0; y < Height; y++)
+        {
+            StringBuilder top = new StringBuilder("|");
+            StringBuilder bottom = new StringBuilder("+");
+            for (int x = 0; x < Width; x++)
+            {
+                Cell cell = CellsGrid[x][y];
+                String body = "   ";
+                String east_boundary = cell.Linked(cell.East) ? " " : "|";
+                top.append(body).append(east_boundary);
+                String south_boundary = cell.Linked(cell.South) ? "   " : "---";
+                bottom.append(south_boundary).append("+");
+            }
+            output.append(top).append("\n");
+            output.append(bottom).append("\n");
+        }
+        return output.toString();
+    }
 }
 

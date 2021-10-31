@@ -23,5 +23,18 @@ public class GridTest {
         Assert.assertEquals("Different cell is returned",grid.GetCellAt(1,1), grid.CellsGrid[1][1]);
         Assert.assertNull("Outside of bounds we should get null", grid.GetCellAt(-1, -1));
     }
+    @Test
+    public void TestPrintGrid(){
+        Grid grid = new Grid(2,2);
+        grid.CellsGrid[0][0].LinkCell(grid.CellsGrid[1][0]);
+        String expectedOutput = """
+                +---+---+
+                |       |
+                +---+---+
+                |   |   |
+                +---+---+
+                """;
+        Assert.assertEquals(expectedOutput, grid.ToString());
+    }
 }
 
