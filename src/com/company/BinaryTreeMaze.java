@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Random;
 
 public class BinaryTreeMaze {
-    public static Grid Generate(Grid grid)
+    public static void Generate(Grid grid)
     {
         Random rand = new Random();
         for (int x=0; x< grid.Width; x++){
@@ -27,6 +27,5 @@ public class BinaryTreeMaze {
                 }
             }
         }
-        return grid;
     }
 }
