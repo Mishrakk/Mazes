@@ -1,6 +1,8 @@
 package com.company;
 
-public class Grid {
+import java.util.Iterator;
+
+public class Grid implements Iterable<Cell> {
     public final int Width;
     public final int Height;
     public Cell[][] CellsGrid;
@@ -50,6 +52,11 @@ public class Grid {
             output.append(bottom).append("\n");
         }
         return output.toString();
+    }
+
+    @Override
+    public Iterator<Cell> iterator() {
+        return new GridIterator(this);
     }
 }
 
