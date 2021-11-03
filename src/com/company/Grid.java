@@ -16,14 +16,11 @@ public class Grid implements Iterable<Cell> {
                 CellsGrid[x][y] = new Cell(x, y);
             }
         }
-        for (int x=0; x< Width; x++){
-            for (int y=0; y< Height; y++){
-                Cell cell = CellsGrid[x][y];
-                cell.North = GetCellAt(cell.X,cell.Y-1);
-                cell.South = GetCellAt(cell.X, cell.Y + 1);
-                cell.West = GetCellAt(cell.X - 1, cell.Y);
-                cell.East = GetCellAt(cell.X + 1, cell.Y);
-            }
+        for (Cell cell : this){
+            cell.North = GetCellAt(cell.X,cell.Y-1);
+            cell.South = GetCellAt(cell.X, cell.Y + 1);
+            cell.West = GetCellAt(cell.X - 1, cell.Y);
+            cell.East = GetCellAt(cell.X + 1, cell.Y);
         }
     }
 

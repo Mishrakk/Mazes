@@ -7,24 +7,21 @@ public class BinaryTreeMaze {
     public static void Generate(Grid grid)
     {
         Random rand = new Random();
-        for (int x=0; x< grid.Width; x++){
-            for (int y=0; y< grid.Height; y++){
-                Cell cell = grid.GetCellAt(x,y);
-                LinkedList<Cell> neighbours = new LinkedList<>();
-                if (cell.North != null)
-                {
-                    neighbours.add(cell.North);
-                }
-                if (cell.East != null)
-                {
-                    neighbours.add(cell.East);
-                }
+        for (Cell cell : grid){
+            LinkedList<Cell> neighbours = new LinkedList<>();
+            if (cell.North != null)
+            {
+                neighbours.add(cell.North);
+            }
+            if (cell.East != null)
+            {
+                neighbours.add(cell.East);
+            }
 
-                if (neighbours.size() > 0)
-                {
-                    Cell neighbour = neighbours.get(rand.nextInt(neighbours.size()));
-                    cell.LinkCell(neighbour);
-                }
+            if (neighbours.size() > 0)
+            {
+                Cell neighbour = neighbours.get(rand.nextInt(neighbours.size()));
+                cell.LinkCell(neighbour);
             }
         }
     }
