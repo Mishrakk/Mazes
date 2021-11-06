@@ -24,6 +24,10 @@ public class Grid implements Iterable<Cell> {
         }
     }
 
+    public int Size(){
+        return Width * Height;
+    }
+
     public Cell GetCellAt(int x, int y){
         return x < 0 || x == Width || y < 0 || y == Height ? null : CellsGrid[x][y];
     }

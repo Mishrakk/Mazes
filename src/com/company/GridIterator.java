@@ -15,7 +15,7 @@ public class GridIterator implements Iterator<Cell> {
     }
     @Override
     public boolean hasNext() {
-        return y * grid.Width + x < grid.Width * grid.Height;
+        return y * grid.Width + x < grid.Size();
     }
 
     @Override
