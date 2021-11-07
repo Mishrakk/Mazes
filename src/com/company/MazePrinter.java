@@ -13,8 +13,14 @@ public class MazePrinter {
     public MazePrinter(Grid grid){
         this(grid, 10);
     }
-    public BufferedImage GetGraphics(){
         BufferedImage bufferedImage = new BufferedImage(CellSize * Grid.Width, CellSize * Grid.Height, BufferedImage.TYPE_INT_RGB);
+    public BufferedImage GetImage(){
+        Graphics graphics = bufferedImage.createGraphics();
+        SetBackground(graphics);
         return bufferedImage;
+    }
+    private void SetBackground(Graphics graphics) {
+        graphics.setColor(Color.white);
+        graphics.fillRect(0, 0, CellSize * Grid.Width, CellSize * Grid.Height);
     }
 }
