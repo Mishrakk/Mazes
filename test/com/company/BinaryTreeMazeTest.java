@@ -12,4 +12,11 @@ public class BinaryTreeMazeTest {
                 && grid.GetCellAt(1,1).Linked(grid.GetCellAt(1,0))
         );
     }
+    @Test
+    public void TestEveryCellIsAccessible(){
+        Grid grid = new Grid(10,10);
+        BinaryTreeMaze.Generate(grid);
+        var distances = grid.GetCellAt(0,0).Distances.GetCellsDistances();
+        Assert.assertEquals("", grid.Size(), distances.size());
+    }
 }
