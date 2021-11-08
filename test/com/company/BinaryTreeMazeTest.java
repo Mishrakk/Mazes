@@ -14,7 +14,7 @@ public class BinaryTreeMazeTest {
     }
     @Test
     public void TestEveryCellIsAccessible(){
-        Grid grid = new Grid(10,10);
+        Grid grid = new Grid(100,100);
         BinaryTreeMaze.Generate(grid);
         var distances = grid.GetCellAt(0,0).Distances.GetCellsDistances();
         Assert.assertEquals("", grid.Size(), distances.size());

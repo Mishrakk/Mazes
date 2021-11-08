@@ -10,19 +10,18 @@ public class SidewinderMaze {
         List<Cell> run = new ArrayList<>();
         for (Cell cell : grid){
             run.add(cell);
-            if (ShouldCloseRun(cell)){
+            if (ShouldCloseRun(cell, rand)){
                 Cell runMember = run.get(rand.nextInt(run.size()));
                 if(runMember.North != null){
                     runMember.LinkCell(runMember.North);
-                    run.clear();
                 }
+                run.clear();
             } else {
                 cell.LinkCell(cell.East);
             }
         }
     }
-    public static boolean ShouldCloseRun(Cell cell){
-        Random rand = new Random();
+    public static boolean ShouldCloseRun(Cell cell, Random rand){
         boolean atEasternBoundary = cell.East == null;
         boolean atNorthernBoundary = cell.North == null;
         return atEasternBoundary || (!atNorthernBoundary && rand.nextBoolean());
