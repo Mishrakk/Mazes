@@ -37,4 +37,10 @@ public class Distances {
     public void Clear(){
         CellsDistances.clear();
     }
+    public Map<Cell, Integer> GetCellsDistances(){
+        if (CellsDistances.size() == 0){
+            Calculate();
+        }
+        return CellsDistances;
+    }
 }
