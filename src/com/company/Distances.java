@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 public class Distances {
-    private Cell Root;
-    private Map<Cell, Integer> CellsDistances;
+    private final Cell Root;
+    private final Map<Cell, Integer> CellsDistances;
     public Distances(Cell root){
         this.Root = root;
         CellsDistances = new HashMap<>();
