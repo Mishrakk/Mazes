@@ -12,6 +12,12 @@ public class Distances {
         this.Root = root;
         CellsDistances = new HashMap<>();
     }
+    public Boolean containsKey(Cell cell){
+        if (CellsDistances.size() == 0){
+            Calculate();
+        }
+        return CellsDistances.containsKey(cell);
+    }
     public int GetDistanceTo(Cell cell){
         if (CellsDistances.size() == 0){
             Calculate();

@@ -8,8 +8,9 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         System.out.print("Hello World!\n");
-        Grid grid = new Grid(10, 10);
+        var grid = new DistancesGrid(10, 10);
         SidewinderMaze.Generate(grid);
+        grid.distances = grid.GetCellAt(0,0).Distances;
         System.out.print(grid);
         MazePrinter mazePrinter = new MazePrinter(grid);
         File file = new File("maze.png");

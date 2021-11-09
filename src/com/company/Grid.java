@@ -32,6 +32,10 @@ public class Grid implements Iterable<Cell> {
         return x < 0 || x == Width || y < 0 || y == Height ? null : CellsGrid[x][y];
     }
 
+    public String ContentsOf(Cell cell){
+        return " ";
+    }
+
     public String toString()
     {
         StringBuilder output = new StringBuilder("+" + "---+".repeat(Height) + "\n");
@@ -43,7 +47,7 @@ public class Grid implements Iterable<Cell> {
             for (int x = 0; x < Width; x++)
             {
                 Cell cell = CellsGrid[x][y];
-                String body = "   ";
+                String body = " " + ContentsOf(cell) + " ";
                 String east_boundary = cell.Linked(cell.East) ? " " : "|";
                 top.append(body).append(east_boundary);
                 String south_boundary = cell.Linked(cell.South) ? "   " : "---";
