@@ -6,47 +6,47 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 public class Distances {
-    private final Cell Root;
-    private final Map<Cell, Integer> CellsDistances;
+    private final Cell root;
+    private final Map<Cell, Integer> cellsDistances;
     public Distances(Cell root){
-        this.Root = root;
-        CellsDistances = new HashMap<>();
+        this.root = root;
+        cellsDistances = new HashMap<>();
     }
     public Boolean containsKey(Cell cell){
-        if (CellsDistances.size() == 0){
-            Calculate();
+        if (cellsDistances.size() == 0){
+            calculate();
         }
-        return CellsDistances.containsKey(cell);
+        return cellsDistances.containsKey(cell);
     }
-    public int GetDistanceTo(Cell cell){
-        if (CellsDistances.size() == 0){
-            Calculate();
+    public int getDistanceTo(Cell cell){
+        if (cellsDistances.size() == 0){
+            calculate();
         }
-        return CellsDistances.get(cell);
+        return cellsDistances.get(cell);
     }
-    private void Calculate(){
-        CellsDistances.put(Root, 0);
-        var queue = new PriorityQueue<Cell>(Comparator.comparingInt(this::GetDistanceTo));
-        queue.add(Root);
+    private void calculate(){
+        cellsDistances.put(root, 0);
+        var queue = new PriorityQueue<Cell>(Comparator.comparingInt(this::getDistanceTo));
+        queue.add(root);
         while (queue.size() != 0){
             Cell cell = queue.poll();
-            cell.Links.entrySet().stream().filter(Map.Entry::getValue).forEach(entry -> {
-                int newDistance = CellsDistances.get(cell) + 1;
+            cell.links.entrySet().stream().filter(Map.Entry::getValue).forEach(entry -> {
+                int newDistance = cellsDistances.get(cell) + 1;
                 Cell neighbour = entry.getKey();
-                if (!CellsDistances.containsKey(neighbour) || CellsDistances.get(neighbour) > newDistance){
-                    CellsDistances.put(neighbour, newDistance);
+                if (!cellsDistances.containsKey(neighbour) || cellsDistances.get(neighbour) > newDistance){
+                    cellsDistances.put(neighbour, newDistance);
                     queue.add(neighbour);
                 }
             });
         }
     }
-    public void Clear(){
-        CellsDistances.clear();
+    public void clear(){
+        cellsDistances.clear();
     }
-    public Map<Cell, Integer> GetCellsDistances(){
-        if (CellsDistances.size() == 0){
-            Calculate();
+    public Map<Cell, Integer> getCellsDistances(){
+        if (cellsDistances.size() == 0){
+            calculate();
         }
-        return CellsDistances;
+        return cellsDistances;
     }
 }

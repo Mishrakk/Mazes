@@ -15,13 +15,13 @@ public class GridIterator implements Iterator<Cell> {
     }
     @Override
     public boolean hasNext() {
-        return y * grid.Width + x < grid.Size();
+        return y * grid.width + x < grid.size();
     }
 
     @Override
     public Cell next() {
-        current = grid.GetCellAt(x, y);
-        if (x + 1 < grid.Width){
+        current = grid.getCellAt(x, y);
+        if (x + 1 < grid.width){
             x++;
         } else {
             x = 0;

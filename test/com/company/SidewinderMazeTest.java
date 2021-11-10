@@ -5,16 +5,16 @@ import org.junit.Test;
 
 public class SidewinderMazeTest {
     @Test
-    public void TestBias(){
+    public void testBias(){
         Grid grid = new Grid(2,2);
-        SidewinderMaze.Generate(grid);
-        Assert.assertTrue(grid.GetCellAt(0,0).Linked(grid.GetCellAt(1,0)));
+        SidewinderMaze.generate(grid);
+        Assert.assertTrue(grid.getCellAt(0,0).isLinked(grid.getCellAt(1,0)));
     }
     @Test
-    public void TestEveryCellIsAccessible(){
+    public void testEveryCellIsAccessible(){
         Grid grid = new Grid(100,100);
-        SidewinderMaze.Generate(grid);
-        var distances = grid.GetCellAt(0,0).Distances.GetCellsDistances();
-        Assert.assertEquals("", grid.Size(), distances.size());
+        SidewinderMaze.generate(grid);
+        var distances = grid.getCellAt(0,0).distances.getCellsDistances();
+        Assert.assertEquals("", grid.size(), distances.size());
     }
 }

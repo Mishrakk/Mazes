@@ -5,24 +5,24 @@ import java.util.List;
 import java.util.Random;
 
 public class BinaryTreeMaze {
-    public static void Generate(Grid grid) {
+    public static void generate(Grid grid) {
         Random rand = new Random();
         for (Cell cell : grid) {
             List<Cell> neighbours = getNeighbours(cell);
 
             if (neighbours.size() > 0) {
                 Cell neighbour = neighbours.get(rand.nextInt(neighbours.size()));
-                cell.LinkCell(neighbour);
+                cell.linkCell(neighbour);
             }
         }
     }
     private static List<Cell> getNeighbours(Cell cell) {
         List<Cell> neighbours = new ArrayList<>();
-        if (cell.North != null) {
-            neighbours.add(cell.North);
+        if (cell.north != null) {
+            neighbours.add(cell.north);
         }
-        if (cell.East != null) {
-            neighbours.add(cell.East);
+        if (cell.east != null) {
+            neighbours.add(cell.east);
         }
         return neighbours;
     }

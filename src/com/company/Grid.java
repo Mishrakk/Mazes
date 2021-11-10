@@ -3,54 +3,54 @@ package com.company;
 import java.util.Iterator;
 
 public class Grid implements Iterable<Cell> {
-    public final int Width;
-    public final int Height;
-    public Cell[][] CellsGrid;
+    public final int width;
+    public final int height;
+    public Cell[][] cellsGrid;
 
     public Grid(int width, int height){
-        Width = width;
-        Height = height;
-        CellsGrid = new Cell[Width][Height];
-        for (int x=0; x< Width; x++){
-            for (int y=0; y< Height; y++){
-                CellsGrid[x][y] = new Cell(x, y);
+        this.width = width;
+        this.height = height;
+        cellsGrid = new Cell[this.width][this.height];
+        for (int x = 0; x< this.width; x++){
+            for (int y = 0; y< this.height; y++){
+                cellsGrid[x][y] = new Cell(x, y);
             }
         }
         for (Cell cell : this){
-            cell.North = GetCellAt(cell.X,cell.Y-1);
-            cell.South = GetCellAt(cell.X, cell.Y + 1);
-            cell.West = GetCellAt(cell.X - 1, cell.Y);
-            cell.East = GetCellAt(cell.X + 1, cell.Y);
+            cell.north = getCellAt(cell.X,cell.Y-1);
+            cell.south = getCellAt(cell.X, cell.Y + 1);
+            cell.west = getCellAt(cell.X - 1, cell.Y);
+            cell.east = getCellAt(cell.X + 1, cell.Y);
         }
     }
 
-    public int Size(){
-        return Width * Height;
+    public int size(){
+        return width * height;
     }
 
-    public Cell GetCellAt(int x, int y){
-        return x < 0 || x == Width || y < 0 || y == Height ? null : CellsGrid[x][y];
+    public Cell getCellAt(int x, int y){
+        return x < 0 || x == width || y < 0 || y == height ? null : cellsGrid[x][y];
     }
 
-    public String ContentsOf(Cell cell){
+    public String contentsOf(Cell cell){
         return " ";
     }
 
     public String toString()
     {
-        StringBuilder output = new StringBuilder("+" + "---+".repeat(Height) + "\n");
+        StringBuilder output = new StringBuilder("+" + "---+".repeat(height) + "\n");
 
-        for (int y = 0; y < Height; y++)
+        for (int y = 0; y < height; y++)
         {
             StringBuilder top = new StringBuilder("|");
             StringBuilder bottom = new StringBuilder("+");
-            for (int x = 0; x < Width; x++)
+            for (int x = 0; x < width; x++)
             {
-                Cell cell = CellsGrid[x][y];
-                String body = " " + ContentsOf(cell) + " ";
-                String east_boundary = cell.Linked(cell.East) ? " " : "|";
+                Cell cell = cellsGrid[x][y];
+                String body = " " + contentsOf(cell) + " ";
+                String east_boundary = cell.isLinked(cell.east) ? " " : "|";
                 top.append(body).append(east_boundary);
-                String south_boundary = cell.Linked(cell.South) ? "   " : "---";
+                String south_boundary = cell.isLinked(cell.south) ? "   " : "---";
                 bottom.append(south_boundary).append("+");
             }
             output.append(top).append("\n");

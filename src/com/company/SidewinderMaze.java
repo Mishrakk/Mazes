@@ -5,25 +5,25 @@ import java.util.List;
 import java.util.Random;
 
 public class SidewinderMaze {
-    public static void Generate(Grid grid) {
+    public static void generate(Grid grid) {
         Random rand = new Random();
         List<Cell> run = new ArrayList<>();
         for (Cell cell : grid){
             run.add(cell);
-            if (ShouldCloseRun(cell, rand)){
+            if (shouldCloseRun(cell, rand)){
                 Cell runMember = run.get(rand.nextInt(run.size()));
-                if(runMember.North != null){
-                    runMember.LinkCell(runMember.North);
+                if(runMember.north != null){
+                    runMember.linkCell(runMember.north);
                 }
                 run.clear();
             } else {
-                cell.LinkCell(cell.East);
+                cell.linkCell(cell.east);
             }
         }
     }
-    public static boolean ShouldCloseRun(Cell cell, Random rand){
-        boolean atEasternBoundary = cell.East == null;
-        boolean atNorthernBoundary = cell.North == null;
+    public static boolean shouldCloseRun(Cell cell, Random rand){
+        boolean atEasternBoundary = cell.east == null;
+        boolean atNorthernBoundary = cell.north == null;
         return atEasternBoundary || (!atNorthernBoundary && rand.nextBoolean());
     }
 }

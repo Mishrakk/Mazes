@@ -5,29 +5,29 @@ import java.util.HashMap;
 public class Cell {
     public final int X;
     public final int Y;
-    public Cell North;
-    public Cell South;
-    public Cell East;
-    public Cell West;
-    public HashMap<Cell, Boolean> Links;
-    public Distances Distances;
+    public Cell north;
+    public Cell south;
+    public Cell east;
+    public Cell west;
+    public HashMap<Cell, Boolean> links;
+    public Distances distances;
 
     public Cell(int x, int y){
         X = x;
         Y = y;
-        Links = new HashMap<Cell, Boolean>();
-        Distances = new Distances(this);
+        links = new HashMap<Cell, Boolean>();
+        distances = new Distances(this);
     }
 
-    public void LinkCell(Cell linkedCell)
+    public void linkCell(Cell linkedCell)
     {
-        Links.put(linkedCell, true);
-        linkedCell.Links.put(this, true);
-        Distances.Clear();
+        links.put(linkedCell, true);
+        linkedCell.links.put(this, true);
+        distances.clear();
     }
 
-    public boolean Linked(Cell linkedCell)
+    public boolean isLinked(Cell linkedCell)
     {
-        return Links.getOrDefault(linkedCell, false);
+        return links.getOrDefault(linkedCell, false);
     }
 }

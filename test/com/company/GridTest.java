@@ -5,28 +5,28 @@ import org.junit.Test;
 
 public class GridTest {
     @Test
-    public void TestConstructor(){
+    public void testConstructor(){
         Grid grid = new Grid(10, 11);
-        Assert.assertEquals("Width is not properly set",10, grid.Width);
-        Assert.assertEquals("Height is not properly set", 11, grid.Height);
-        Assert.assertEquals("CellsGrid width is not properly set", 10, grid.CellsGrid.length);
-        Assert.assertEquals("CellsGrid height is not properly set", 11, grid.CellsGrid[0].length);
-        Assert.assertNotNull("Cell is null", grid.CellsGrid[0][0]);
-        Assert.assertNotNull("North neighbor is null", grid.CellsGrid[1][1].North);
-        Assert.assertNotNull("South neighbor is null", grid.CellsGrid[1][1].South);
-        Assert.assertNotNull("East neighbor is null", grid.CellsGrid[1][1].East);
-        Assert.assertNotNull("West neighbor is null", grid.CellsGrid[1][1].West);
+        Assert.assertEquals("Width is not properly set",10, grid.width);
+        Assert.assertEquals("Height is not properly set", 11, grid.height);
+        Assert.assertEquals("CellsGrid width is not properly set", 10, grid.cellsGrid.length);
+        Assert.assertEquals("CellsGrid height is not properly set", 11, grid.cellsGrid[0].length);
+        Assert.assertNotNull("Cell is null", grid.cellsGrid[0][0]);
+        Assert.assertNotNull("North neighbor is null", grid.cellsGrid[1][1].north);
+        Assert.assertNotNull("South neighbor is null", grid.cellsGrid[1][1].south);
+        Assert.assertNotNull("East neighbor is null", grid.cellsGrid[1][1].east);
+        Assert.assertNotNull("West neighbor is null", grid.cellsGrid[1][1].west);
     }
     @Test
-    public void TestGetCellAt(){
+    public void testGetCellAt(){
         Grid grid = new Grid(10, 10);
-        Assert.assertEquals("Different cell is returned",grid.GetCellAt(1,1), grid.CellsGrid[1][1]);
-        Assert.assertNull("Outside of bounds we should get null", grid.GetCellAt(-1, -1));
+        Assert.assertEquals("Different cell is returned",grid.getCellAt(1,1), grid.cellsGrid[1][1]);
+        Assert.assertNull("Outside of bounds we should get null", grid.getCellAt(-1, -1));
     }
     @Test
-    public void TestPrintGrid(){
+    public void testPrintGrid(){
         Grid grid = new Grid(2,2);
-        grid.CellsGrid[0][0].LinkCell(grid.CellsGrid[1][0]);
+        grid.cellsGrid[0][0].linkCell(grid.cellsGrid[1][0]);
         String expectedOutput = """
                 +---+---+
                 |       |

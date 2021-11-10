@@ -8,11 +8,11 @@ public class DistancesGrid extends Grid {
     }
 
     @Override
-    public String ContentsOf(Cell cell){
+    public String contentsOf(Cell cell){
         if (distances != null && distances.containsKey(cell)){
-            return Integer.toString(distances.GetDistanceTo(cell), Character.MAX_RADIX);
+            return Integer.toString(distances.getDistanceTo(cell), Character.MAX_RADIX);
         } else {
-            return super.ContentsOf(cell);
+            return super.contentsOf(cell);
         }
     }
 }

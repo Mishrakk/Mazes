@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 public class GridIteratorTest {
     @Test
-    public void TestEmptyCollection(){
+    public void testEmptyCollection(){
         Grid grid = new Grid(0,0);
         GridIterator gridIterator = new GridIterator(grid);
 
@@ -22,13 +22,13 @@ public class GridIteratorTest {
     }
 
     @Test
-    public void Test1dCollection(){
+    public void test1DCollection(){
         Grid grid = new Grid(2,1);
         GridIterator gridIterator = new GridIterator(grid);
 
         Assert.assertTrue("There is next element in initialized collection", gridIterator.hasNext());
-        Assert.assertEquals("First element is equal to grid[0][0]", grid.GetCellAt(0,0), gridIterator.next());
-        Assert.assertEquals("Second element is equal to grid[0][1]", grid.GetCellAt(1,0), gridIterator.next());
+        Assert.assertEquals("First element is equal to grid[0][0]", grid.getCellAt(0,0), gridIterator.next());
+        Assert.assertEquals("Second element is equal to grid[0][1]", grid.getCellAt(1,0), gridIterator.next());
         Assert.assertFalse("There are only two elements in collection", gridIterator.hasNext());
         Assert.assertNull("After last element should return null", gridIterator.next());
 
@@ -37,10 +37,10 @@ public class GridIteratorTest {
             list.add(cell);
         }
         Assert.assertEquals("There are exactly two elements we iterate over", 2, list.size());
-        Assert.assertTrue("Cells are in proper order", list.get(0) == grid.GetCellAt(0,0) && list.get(1) == grid.GetCellAt(1,0));
+        Assert.assertTrue("Cells are in proper order", list.get(0) == grid.getCellAt(0,0) && list.get(1) == grid.getCellAt(1,0));
     }
     @Test
-    public void Test2dCollection(){
+    public void test2DCollection(){
         Grid grid = new Grid(2,2);
         GridIterator gridIterator = new GridIterator(grid);
 
@@ -48,15 +48,15 @@ public class GridIteratorTest {
         gridIterator.next();
 
         Assert.assertTrue("There is next cell in new row", gridIterator.hasNext());
-        Assert.assertEquals("First cell in second row is at (0,1)", grid.GetCellAt(0,1), gridIterator.next());
+        Assert.assertEquals("First cell in second row is at (0,1)", grid.getCellAt(0,1), gridIterator.next());
         Assert.assertTrue("There is fourth cell", gridIterator.hasNext());
-        Assert.assertEquals("Last cell is at (1,1)", grid.GetCellAt(1,1), gridIterator.next());
+        Assert.assertEquals("Last cell is at (1,1)", grid.getCellAt(1,1), gridIterator.next());
         Assert.assertFalse("There are only four cells in this 2d grid", gridIterator.hasNext());
         LinkedList<Cell> list = new LinkedList<>();
         for (Cell cell : grid){
             list.add(cell);
         }
         Assert.assertEquals("There are exactly four elements we iterate over", 4, list.size());
-        Assert.assertTrue("Cells are in proper order", list.get(2) == grid.GetCellAt(0,1) && list.get(3) == grid.GetCellAt(1,1));
+        Assert.assertTrue("Cells are in proper order", list.get(2) == grid.getCellAt(0,1) && list.get(3) == grid.getCellAt(1,1));
     }
 }

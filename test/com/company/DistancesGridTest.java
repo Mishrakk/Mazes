@@ -5,12 +5,12 @@ import org.junit.Test;
 
 public class DistancesGridTest {
     @Test
-    public void TestPrintingDistances(){
+    public void testPrintingDistances(){
         var grid = new DistancesGrid(2,2);
-        grid.GetCellAt(0,0).LinkCell( grid.GetCellAt(1,0) );
-        grid.GetCellAt(1,0).LinkCell( grid.GetCellAt(1,1) );
-        grid.GetCellAt(1,1).LinkCell( grid.GetCellAt(0,1) );
-        grid.distances = grid.GetCellAt(0,0).Distances;
+        grid.getCellAt(0,0).linkCell( grid.getCellAt(1,0) );
+        grid.getCellAt(1,0).linkCell( grid.getCellAt(1,1) );
+        grid.getCellAt(1,1).linkCell( grid.getCellAt(0,1) );
+        grid.distances = grid.getCellAt(0,0).distances;
         String expected = """
                 +---+---+
                 | 0   1 |
