@@ -13,4 +13,12 @@ public class DistancesTest {
         Assert.assertEquals("Distance to root is zero", 0, distances.getDistanceTo(cell));
         Assert.assertEquals("Distance to neighbour is one", 1, distances.getDistanceTo(cell.east));
     }
+    @Test
+    public void testMaxDistance(){
+        Grid grid = new Grid(2,1);
+        var cell = grid.getCellAt(0,0);
+        cell.linkCell(cell.east);
+        var distances = new Distances(cell);
+        Assert.assertEquals("Max distance is one", 1, distances.getMaxDistance());
+    }
 }
