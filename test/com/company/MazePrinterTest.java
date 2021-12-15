@@ -55,5 +55,17 @@ public class MazePrinterTest {
         Assert.assertEquals("Western border is white", Color.white.getRGB(), image.getRGB(10, 15));
         Assert.assertEquals("Eastern border is white", Color.white.getRGB(), image.getRGB(20, 15));
     }
+
+    @Test
+    public void testDrawingColoredCellsBackground(){
+        Grid grid = new Grid (2,2);
+        grid.getCellAt(0,0).linkCell(grid.getCellAt(1,0));
+        grid.getCellAt(1,0).linkCell(grid.getCellAt(1,1));
+        grid.getCellAt(1,1).linkCell(grid.getCellAt(0,1));
+        MazePrinter mazePrinter = new MazePrinter(grid, 10);
+        var image = mazePrinter.getColoredImage();
+        Assert.assertEquals("Background of first cell is white", Color.white.getRGB(), image.getRGB(1,1));
+        Assert.assertNotEquals("First cell background is different than last cell background", image.getRGB(1,11), image.getRGB(1,1));
+    }
 }
 
