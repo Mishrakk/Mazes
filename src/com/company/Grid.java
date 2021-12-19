@@ -1,15 +1,18 @@
 package com.company;
 
 import java.util.Iterator;
+import java.util.Random;
 
 public class Grid implements Iterable<Cell> {
     public final int width;
     public final int height;
     public Cell[][] cellsGrid;
+    private Random random;
 
     public Grid(int width, int height){
         this.width = width;
         this.height = height;
+        random = new Random();
         cellsGrid = new Cell[this.width][this.height];
         for (int x = 0; x< this.width; x++){
             for (int y = 0; y< this.height; y++){
@@ -30,6 +33,12 @@ public class Grid implements Iterable<Cell> {
 
     public Cell getCellAt(int x, int y){
         return x < 0 || x == width || y < 0 || y == height ? null : cellsGrid[x][y];
+    }
+
+    public Cell getRandomCell(){
+        int randomX = (int)Math.floor(Math.random()*(width+1));
+        int randomY = (int)Math.floor(Math.random()*(height+1));
+        return getCellAt(randomX, randomY);
     }
 
     public String contentsOf(Cell cell){

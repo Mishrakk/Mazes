@@ -24,6 +24,11 @@ public class GridTest {
         Assert.assertNull("Outside of bounds we should get null", grid.getCellAt(-1, -1));
     }
     @Test
+    public void testGetRandomCell(){
+        Grid grid = new Grid(10, 10);
+        Assert.assertNotNull("Random cell returns not null", grid.getRandomCell());
+    }
+    @Test
     public void testPrintGrid(){
         Grid grid = new Grid(2,2);
         grid.cellsGrid[0][0].linkCell(grid.cellsGrid[1][0]);
