@@ -8,7 +8,8 @@ import java.awt.*;
 public class MazePrinterTest {
     @Test
     public void testImageSize() {
-        Grid grid = new Grid(2,3);
+        Random random = new Random();
+        Grid grid = new Grid(2,3, random);
         MazePrinter mazePrinter = new MazePrinter(grid, 10);
         var image = mazePrinter.getImage();
         Assert.assertEquals("Image width should be equal to cell size times grid width", 21, image.getWidth());
@@ -16,7 +17,8 @@ public class MazePrinterTest {
     }
     @Test
     public void testDefaultCellSize() {
-        Grid grid = new Grid(2,3);
+        Random random = new Random();
+        Grid grid = new Grid(2,3, random);
         MazePrinter mazePrinter = new MazePrinter(grid);
         var image = mazePrinter.getImage();
         Assert.assertEquals("Image width is based on default cell size", 21, image.getWidth());
@@ -24,7 +26,8 @@ public class MazePrinterTest {
     }
     @Test
     public void testDrawingBackground(){
-        Grid grid = new Grid (2,2);
+        Random random = new Random();
+        Grid grid = new Grid (2,2, random);
         MazePrinter mazePrinter = new MazePrinter(grid);
         var image = mazePrinter.getImage();
         Assert.assertEquals("Background is white", Color.white.getRGB(), image.getRGB(1,1));
@@ -32,7 +35,8 @@ public class MazePrinterTest {
     }
     @Test
     public void testDrawCellWithNoLinks(){
-        Grid grid = new Grid (3,3);
+        Random random = new Random();
+        Grid grid = new Grid (3,3, random);
         MazePrinter mazePrinter = new MazePrinter(grid, 10);
         var image = mazePrinter.getImage();
         Assert.assertEquals("Northern border is black", Color.black.getRGB(), image.getRGB(15, 10));
@@ -42,7 +46,8 @@ public class MazePrinterTest {
     }
     @Test
     public void testDrawCellWithAllLinks(){
-        Grid grid = new Grid (3,3);
+        Random random = new Random();
+        Grid grid = new Grid (3,3, random);
         MazePrinter mazePrinter = new MazePrinter(grid, 10);
         var cell = grid.getCellAt(1,1);
         cell.linkCell(grid.getCellAt(1, 0));
@@ -58,7 +63,8 @@ public class MazePrinterTest {
 
     @Test
     public void testDrawingColoredCellsBackground(){
-        Grid grid = new Grid (2,2);
+        Random random = new Random();
+        Grid grid = new Grid (2,2, random);
         grid.getCellAt(0,0).linkCell(grid.getCellAt(1,0));
         grid.getCellAt(1,0).linkCell(grid.getCellAt(1,1));
         grid.getCellAt(1,1).linkCell(grid.getCellAt(0,1));

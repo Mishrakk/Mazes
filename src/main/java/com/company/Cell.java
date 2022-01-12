@@ -13,12 +13,14 @@ public class Cell {
     public Cell west;
     public HashMap<Cell, Boolean> links;
     public Distances distances;
+    private final Random random;
 
-    public Cell(int x, int y){
+    public Cell(int x, int y, Random rand){
         X = x;
         Y = y;
         links = new HashMap<Cell, Boolean>();
         distances = new Distances(this);
+        random = rand;
     }
 
     public void linkCell(Cell linkedCell)
@@ -51,6 +53,6 @@ public class Cell {
     }
     public Cell getRandomNeighbour(){
         List<Cell> neighbours = getNeighbours();
-        return neighbours.get((int)Math.floor(Math.random()*(neighbours.size())));
+        return random.getRandomElement(neighbours);
     }
 }

@@ -6,7 +6,8 @@ import org.junit.Test;
 public class DistancesTest {
     @Test
     public void testDistances() {
-        Grid grid = new Grid(2,1);
+        Random random = new Random();
+        Grid grid = new Grid(2,1, random);
         var cell = grid.getCellAt(0,0);
         cell.linkCell(cell.east);
         var distances = new Distances(cell);
@@ -15,7 +16,8 @@ public class DistancesTest {
     }
     @Test
     public void testMaxDistance(){
-        Grid grid = new Grid(2,1);
+        Random random = new Random();
+        Grid grid = new Grid(2,1, random);
         var cell = grid.getCellAt(0,0);
         cell.linkCell(cell.east);
         var distances = new Distances(cell);

@@ -8,7 +8,8 @@ import java.util.LinkedList;
 public class GridIteratorTest {
     @Test
     public void testEmptyCollection(){
-        Grid grid = new Grid(0,0);
+        Random random = new Random();
+        Grid grid = new Grid(0,0, random);
         GridIterator gridIterator = new GridIterator(grid);
 
         Assert.assertFalse("Empty collection has no next", gridIterator.hasNext());
@@ -23,7 +24,8 @@ public class GridIteratorTest {
 
     @Test
     public void test1DCollection(){
-        Grid grid = new Grid(2,1);
+        Random random = new Random();
+        Grid grid = new Grid(2,1, random);
         GridIterator gridIterator = new GridIterator(grid);
 
         Assert.assertTrue("There is next element in initialized collection", gridIterator.hasNext());
@@ -41,7 +43,8 @@ public class GridIteratorTest {
     }
     @Test
     public void test2DCollection(){
-        Grid grid = new Grid(2,2);
+        Random random = new Random();
+        Grid grid = new Grid(2,2, random);
         GridIterator gridIterator = new GridIterator(grid);
 
         gridIterator.next();

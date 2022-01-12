@@ -2,16 +2,18 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class SidewinderMaze {
-    public static void generate(Grid grid) {
-        Random rand = new Random();
+    private final Random random;
+    public SidewinderMaze(Random rand){
+        random = rand;
+    }
+    public void generate(Grid grid) {
         List<Cell> run = new ArrayList<>();
         for (Cell cell : grid){
             run.add(cell);
-            if (shouldCloseRun(cell, rand)){
-                Cell runMember = run.get(rand.nextInt(run.size()));
+            if (shouldCloseRun(cell)){
+                Cell runMember = random.getRandomElement(run);
                 if(runMember.north != null){
                     runMember.linkCell(runMember.north);
                 }
@@ -21,9 +23,9 @@ public class SidewinderMaze {
             }
         }
     }
-    public static boolean shouldCloseRun(Cell cell, Random rand){
+    private boolean shouldCloseRun(Cell cell){
         boolean atEasternBoundary = cell.east == null;
         boolean atNorthernBoundary = cell.north == null;
-        return atEasternBoundary || (!atNorthernBoundary && rand.nextBoolean());
+        return atEasternBoundary || (!atNorthernBoundary && random.nextBoolean());
     }
 }

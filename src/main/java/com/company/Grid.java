@@ -1,22 +1,21 @@
 package com.company;
 
 import java.util.Iterator;
-import java.util.Random;
 
 public class Grid implements Iterable<Cell> {
     public final int width;
     public final int height;
     public Cell[][] cellsGrid;
-    private Random random;
+    private final Random random;
 
-    public Grid(int width, int height){
+    public Grid(int width, int height, Random rand){
         this.width = width;
         this.height = height;
-        random = new Random();
+        random = rand;
         cellsGrid = new Cell[this.width][this.height];
         for (int x = 0; x< this.width; x++){
             for (int y = 0; y< this.height; y++){
-                cellsGrid[x][y] = new Cell(x, y);
+                cellsGrid[x][y] = new Cell(x, y, random);
             }
         }
         for (Cell cell : this){
@@ -36,8 +35,8 @@ public class Grid implements Iterable<Cell> {
     }
 
     public Cell getRandomCell(){
-        int randomX = (int)Math.floor(Math.random()*(width+1));
-        int randomY = (int)Math.floor(Math.random()*(height+1));
+        int randomX = random.nextInt(width+1);
+        int randomY = random.nextInt(height+1);
         return getCellAt(randomX, randomY);
     }
 

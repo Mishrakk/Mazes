@@ -2,21 +2,23 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class BinaryTreeMaze {
-    public static void generate(Grid grid) {
-        Random rand = new Random();
+    private final Random random;
+    public BinaryTreeMaze(Random rand){
+        random = rand;
+    }
+    public void generate(Grid grid) {
         for (Cell cell : grid) {
             List<Cell> neighbours = getNeighbours(cell);
 
             if (neighbours.size() > 0) {
-                Cell neighbour = neighbours.get(rand.nextInt(neighbours.size()));
+                Cell neighbour = random.getRandomElement(neighbours);
                 cell.linkCell(neighbour);
             }
         }
     }
-    private static List<Cell> getNeighbours(Cell cell) {
+    private List<Cell> getNeighbours(Cell cell) {
         List<Cell> neighbours = new ArrayList<>();
         if (cell.north != null) {
             neighbours.add(cell.north);

@@ -6,8 +6,10 @@ import org.junit.Test;
 public class AldousBroderMazeTest {
     @Test
     public void testEveryCellIsAccessible(){
-        Grid grid = new Grid(100,100);
-        AldousBroderMaze.generate(grid);
+        Random random = new Random();
+        Grid grid = new Grid(100,100, random);
+        var generator = new AldousBroderMaze(random);
+        generator.generate(grid);
         var distances = grid.getCellAt(0,0).distances.getCellsDistances();
         Assert.assertEquals("", grid.size(), distances.size());
     }

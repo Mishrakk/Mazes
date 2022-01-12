@@ -8,8 +8,10 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         System.out.print("Hello World!\n");
-        var grid = new Grid(100, 100);
-        AldousBroderMaze.generate(grid);
+        Random random = new Random();
+        var grid = new Grid(100, 100, random);
+        var generator = new AldousBroderMaze(random);
+        generator.generate(grid);
         System.out.print(grid);
         var mazePrinter = new MazePrinter(grid);
         var file = new File("maze.png");
