@@ -10,7 +10,7 @@ public class Main {
         System.out.print("Hello World!\n");
         Random random = new Random();
         var grid = new Grid(100, 100, random);
-        var generator = new WilsonsMaze(random);
+        var generator = new HuntAndKillMaze(random);
         generator.generate(grid);
         System.out.print(grid);
         var mazePrinter = new MazePrinter(grid);
