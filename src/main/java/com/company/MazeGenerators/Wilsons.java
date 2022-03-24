@@ -1,12 +1,16 @@
-package com.company;
+package com.company.MazeGenerators;
+
+import com.company.Cell;
+import com.company.Grid;
+import com.company.Random;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class WilsonsMaze {
+public class Wilsons implements IMazeGenerator {
     private final Random random;
 
-    public WilsonsMaze(Random random) {
+    public Wilsons(Random random) {
         this.random = random;
     }
 

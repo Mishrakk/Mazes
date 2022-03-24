@@ -1,10 +1,14 @@
-package com.company;
+package com.company.MazeGenerators;
+
+import com.company.Cell;
+import com.company.Grid;
+import com.company.Random;
 
 import java.util.Stack;
 
-public class RecursiveBacktrackerMaze {
+public class RecursiveBacktracker implements IMazeGenerator {
     private final Random random;
-    public RecursiveBacktrackerMaze(Random rand){
+    public RecursiveBacktracker(Random rand){
         random = rand;
     }
     public void generate(Grid grid) {

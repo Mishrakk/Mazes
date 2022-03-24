@@ -1,5 +1,8 @@
 package com.company;
 
+import com.company.MazeGenerators.IMazeGenerator;
+import com.company.MazeGenerators.RecursiveBacktracker;
+
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +13,7 @@ public class Main {
         System.out.print("Hello World!\n");
         Random random = new Random();
         var grid = new Grid(100, 100, random);
-        var generator = new RecursiveBacktrackerMaze(random);
+        IMazeGenerator generator = new RecursiveBacktracker(random);
         generator.generate(grid);
         System.out.print(grid);
         var mazePrinter = new MazePrinter(grid);

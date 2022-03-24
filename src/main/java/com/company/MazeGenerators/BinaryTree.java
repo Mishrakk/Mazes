@@ -1,11 +1,15 @@
-package com.company;
+package com.company.MazeGenerators;
+
+import com.company.Cell;
+import com.company.Grid;
+import com.company.Random;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BinaryTreeMaze {
+public class BinaryTree implements IMazeGenerator {
     private final Random random;
-    public BinaryTreeMaze(Random rand){
+    public BinaryTree(Random rand){
         random = rand;
     }
     public void generate(Grid grid) {

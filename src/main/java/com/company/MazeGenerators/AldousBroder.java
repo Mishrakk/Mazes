@@ -1,9 +1,11 @@
-package com.company;
+package com.company.MazeGenerators;
 
-public class AldousBroderMaze {
-    private final Random random;
-    public AldousBroderMaze(Random rand){
-        random = rand;
+import com.company.Cell;
+import com.company.Grid;
+import com.company.Random;
+
+public class AldousBroder implements IMazeGenerator {
+    public AldousBroder(Random rand){
     }
     public void generate(Grid grid) {
         Cell cell = grid.getRandomCell();

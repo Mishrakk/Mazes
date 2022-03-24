@@ -1,8 +1,12 @@
-package com.company;
+package com.company.MazeGenerators;
 
-public class HuntAndKillMaze {
+import com.company.Cell;
+import com.company.Grid;
+import com.company.Random;
+
+public class HuntAndKill implements IMazeGenerator {
     private final Random random;
-    public HuntAndKillMaze(Random rand){
+    public HuntAndKill(Random rand){
         random = rand;
     }
 
