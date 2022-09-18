@@ -1,5 +1,9 @@
 package com.company;
 
+import com.company.Model.Cell;
+import com.company.Model.Distances;
+import com.company.Model.Grid;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 

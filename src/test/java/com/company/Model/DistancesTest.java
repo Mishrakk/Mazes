@@ -1,5 +1,6 @@
-package com.company;
+package com.company.Model;
 
+import com.company.Random;
 import org.junit.Assert;
 import org.junit.Test;
 

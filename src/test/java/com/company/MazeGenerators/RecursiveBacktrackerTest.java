@@ -1,7 +1,6 @@
 package com.company.MazeGenerators;
 
-import com.company.Grid;
-import com.company.MazeGenerators.RecursiveBacktracker;
+import com.company.Model.Grid;
 import com.company.Random;
 import org.junit.Assert;
 import org.junit.Test;

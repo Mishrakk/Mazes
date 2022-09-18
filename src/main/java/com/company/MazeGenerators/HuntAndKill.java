@@ -1,7 +1,7 @@
 package com.company.MazeGenerators;
 
-import com.company.Cell;
-import com.company.Grid;
+import com.company.Model.Cell;
+import com.company.Model.Grid;
 import com.company.Random;
 
 public class HuntAndKill implements IMazeGenerator {

@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.Model.Grid;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.Model.Cell;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Model;
 
 import java.util.Comparator;
 import java.util.HashMap;

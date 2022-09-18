@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.MazeGenerators.IMazeGenerator;
 import com.company.MazeGenerators.RecursiveBacktracker;
+import com.company.Model.Grid;
 
 import javax.imageio.ImageIO;
 import java.io.File;

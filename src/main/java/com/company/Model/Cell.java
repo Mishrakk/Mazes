@@ -1,4 +1,6 @@
-package com.company;
+package com.company.Model;
+
+import com.company.Random;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +20,7 @@ public class Cell {
     public Cell(int x, int y, Random rand){
         X = x;
         Y = y;
-        links = new HashMap<Cell, Boolean>();
+        links = new HashMap<>();
         distances = new Distances(this);
         random = rand;
     }
@@ -36,7 +38,7 @@ public class Cell {
     }
 
     public List<Cell> getNeighbours(){
-        List<Cell> neighbours = new ArrayList<Cell>();
+        List<Cell> neighbours = new ArrayList<>();
         if (north != null){
             neighbours.add(north);
         }

@@ -1,4 +1,6 @@
-package com.company;
+package com.company.Model;
+
+import com.company.Random;
 
 import java.util.Iterator;
 
