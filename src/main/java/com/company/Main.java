@@ -2,6 +2,8 @@ package com.company;
 
 import com.company.MazeGenerators.IMazeGenerator;
 import com.company.MazeGenerators.RecursiveBacktracker;
+import com.company.MazePrinters.ColoredPrinter;
+import com.company.MazePrinters.MazePrinter;
 import com.company.Model.Grid;
 
 import javax.imageio.ImageIO;
@@ -17,8 +19,8 @@ public class Main {
         IMazeGenerator generator = new RecursiveBacktracker(random);
         generator.generate(grid);
         System.out.print(grid);
-        var mazePrinter = new MazePrinter(grid);
+        MazePrinter mazePrinter = new ColoredPrinter(grid);
         var file = new File("maze.png");
-        ImageIO.write(mazePrinter.getColoredImage(), "png", file);
+        ImageIO.write(mazePrinter.getImage(), "png", file);
     }
 }
