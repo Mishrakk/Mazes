@@ -15,13 +15,13 @@ public class GridIterator implements Iterator<Cell> {
     }
     @Override
     public boolean hasNext() {
-        return y * grid.width + x < grid.size();
+        return y * grid.getWidth() + x < grid.size();
     }
 
     @Override
     public Cell next() {
         current = grid.getCellAt(x, y);
-        if (x + 1 < grid.width){
+        if (x + 1 < grid.getWidth()){
             x++;
         } else {
             x = 0;

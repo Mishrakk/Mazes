@@ -19,7 +19,7 @@ public class ColoredPrinter extends MazePrinter{
 
     @Override
     public BufferedImage getImage(){
-        BufferedImage bufferedImage = new BufferedImage(cellSize * grid.width + 1, cellSize * grid.height + 1, BufferedImage.TYPE_INT_RGB);
+        BufferedImage bufferedImage = new BufferedImage(cellSize * grid.getWidth() + 1, cellSize * grid.getHeight() + 1, BufferedImage.TYPE_INT_RGB);
         Graphics graphics = bufferedImage.createGraphics();
         SetBackground(graphics);
         drawCells(graphics);

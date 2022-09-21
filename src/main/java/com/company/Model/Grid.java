@@ -3,11 +3,14 @@ package com.company.Model;
 import com.company.Random;
 
 import java.util.Iterator;
+import lombok.*;
 
+@Data
 public class Grid implements Iterable<Cell> {
-    public final int width;
-    public final int height;
-    public Cell[][] cellsGrid;
+    private final int width;
+    private final int height;
+    @Setter(AccessLevel.PRIVATE)
+    private Cell[][] cellsGrid;
     private final Random random;
 
     public Grid(int width, int height, Random rand){
