@@ -1,18 +1,16 @@
 package com.company.Model;
 
+import lombok.Data;
+
 import java.util.Iterator;
 
+@Data
 public class GridIterator implements Iterator<Cell> {
     private final Grid grid;
-    private int x;
-    private int y;
-    public Cell current;
+    private int x = 0;
+    private int y = 0;
+    private Cell current;
 
-    public GridIterator(Grid grid){
-        this.grid = grid;
-        x = 0;
-        y = 0;
-    }
     @Override
     public boolean hasNext() {
         return y * grid.getWidth() + x < grid.size();

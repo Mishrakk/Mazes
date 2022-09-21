@@ -1,18 +1,18 @@
 package com.company.Model;
 
+import lombok.Data;
+
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+@Data
 public class Distances {
     private final Cell root;
-    private final Map<Cell, Integer> cellsDistances;
+    private final Map<Cell, Integer> cellsDistances = new HashMap<>();
     private int maxDistance;
-    public Distances(Cell root){
-        this.root = root;
-        cellsDistances = new HashMap<>();
-    }
+
     public Boolean containsKey(Cell cell){
         if (cellsDistances.size() == 0){
             calculate();
