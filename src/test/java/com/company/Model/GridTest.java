@@ -14,10 +14,10 @@ public class GridTest {
         Assert.assertEquals("CellsGrid width is not properly set", 10, grid.getCellsGrid().length);
         Assert.assertEquals("CellsGrid height is not properly set", 11, grid.getCellsGrid()[0].length);
         Assert.assertNotNull("Cell is null", grid.getCellsGrid()[0][0]);
-        Assert.assertNotNull("North neighbor is null", grid.getCellsGrid()[1][1].north);
-        Assert.assertNotNull("South neighbor is null", grid.getCellsGrid()[1][1].south);
-        Assert.assertNotNull("East neighbor is null", grid.getCellsGrid()[1][1].east);
-        Assert.assertNotNull("West neighbor is null", grid.getCellsGrid()[1][1].west);
+        Assert.assertNotNull("North neighbor is null", grid.getCellsGrid()[1][1].getNorth());
+        Assert.assertNotNull("South neighbor is null", grid.getCellsGrid()[1][1].getSouth());
+        Assert.assertNotNull("East neighbor is null", grid.getCellsGrid()[1][1].getEast());
+        Assert.assertNotNull("West neighbor is null", grid.getCellsGrid()[1][1].getWest());
     }
     @Test
     public void testGetCellAt(){

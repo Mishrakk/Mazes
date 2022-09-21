@@ -36,8 +36,8 @@ public class ColoredPrinter extends MazePrinter{
             int bright = 128 + (int)Math.round((127*intensity));
             Color color = new Color(dark,bright,dark);
             graphics.setColor(color);
-            int x1 = cell.X * cellSize;
-            int y1 = cell.Y * cellSize;
+            int x1 = cell.getX() * cellSize;
+            int y1 = cell.getY() * cellSize;
             graphics.fillRect(x1, y1, cellSize, cellSize);
         }
     }

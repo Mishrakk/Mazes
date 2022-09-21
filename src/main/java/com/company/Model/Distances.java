@@ -39,7 +39,7 @@ public class Distances {
         queue.add(root);
         while (queue.size() != 0){
             Cell cell = queue.poll();
-            cell.links.entrySet().stream().filter(Map.Entry::getValue).forEach(entry -> {
+            cell.getLinks().entrySet().stream().filter(Map.Entry::getValue).forEach(entry -> {
                 int newDistance = cellsDistances.get(cell) + 1;
                 Cell neighbour = entry.getKey();
                 if (!cellsDistances.containsKey(neighbour) || cellsDistances.get(neighbour) > newDistance){

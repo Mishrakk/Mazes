@@ -1,26 +1,30 @@
 package com.company.Model;
 
 import com.company.Random;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@Getter @Setter
 public class Cell {
-    public final int X;
-    public final int Y;
-    public Cell north;
-    public Cell south;
-    public Cell east;
-    public Cell west;
-    public HashMap<Cell, Boolean> links;
-    public Distances distances;
+    private final int X;
+    private final int Y;
+    private Cell north;
+    private Cell south;
+    private Cell east;
+    private Cell west;
+    private final HashMap<Cell, Boolean> links = new HashMap<>();
+    private final Distances distances;
     private final Random random;
+    private int something;
 
     public Cell(int x, int y, Random rand){
         X = x;
         Y = y;
-        links = new HashMap<>();
         distances = new Distances(this);
         random = rand;
     }

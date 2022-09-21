@@ -13,7 +13,7 @@ public class HuntAndKill implements IMazeGenerator {
     public void generate(Grid grid) {
         Cell current = grid.getRandomCell();
         while (current != null){
-            var unvisitedNeighbours = current.getNeighbours().stream().filter(n -> n.links.isEmpty()).toArray();
+            var unvisitedNeighbours = current.getNeighbours().stream().filter(n -> n.getLinks().isEmpty()).toArray();
             if (unvisitedNeighbours.length > 0){
                 Cell randomNeighbour = (Cell) unvisitedNeighbours[random.nextInt(unvisitedNeighbours.length)];
                 current.linkCell(randomNeighbour);
@@ -21,8 +21,8 @@ public class HuntAndKill implements IMazeGenerator {
             } else {
                 current = null;
                 for (var cell : grid){
-                    var visitedNeighbours = cell.getNeighbours().stream().filter(n -> n.links.size() > 0).toArray();
-                    if (cell.links.isEmpty() && visitedNeighbours.length > 0){
+                    var visitedNeighbours = cell.getNeighbours().stream().filter(n -> n.getLinks().size() > 0).toArray();
+                    if (cell.getLinks().isEmpty() && visitedNeighbours.length > 0){
                         current = cell;
                         var neighbour = (Cell) visitedNeighbours[random.nextInt(visitedNeighbours.length)];
                         current.linkCell(neighbour);

@@ -5,7 +5,7 @@ import com.company.Random;
 import java.util.Iterator;
 import lombok.*;
 
-@Data
+@Getter @Setter
 public class Grid implements Iterable<Cell> {
     private final int width;
     private final int height;
@@ -24,10 +24,10 @@ public class Grid implements Iterable<Cell> {
             }
         }
         for (Cell cell : this){
-            cell.north = getCellAt(cell.X,cell.Y-1);
-            cell.south = getCellAt(cell.X, cell.Y + 1);
-            cell.west = getCellAt(cell.X - 1, cell.Y);
-            cell.east = getCellAt(cell.X + 1, cell.Y);
+            cell.setNorth(getCellAt(cell.getX(),cell.getY() - 1));
+            cell.setSouth(getCellAt(cell.getX(), cell.getY() + 1));
+            cell.setWest(getCellAt(cell.getX() - 1, cell.getY()));
+            cell.setEast(getCellAt(cell.getX() + 1, cell.getY()));
         }
     }
 
@@ -61,9 +61,9 @@ public class Grid implements Iterable<Cell> {
             {
                 Cell cell = cellsGrid[x][y];
                 String body = " " + contentsOf(cell) + " ";
-                String east_boundary = cell.isLinked(cell.east) ? " " : "|";
+                String east_boundary = cell.isLinked(cell.getEast()) ? " " : "|";
                 top.append(body).append(east_boundary);
-                String south_boundary = cell.isLinked(cell.south) ? "   " : "---";
+                String south_boundary = cell.isLinked(cell.getSouth()) ? "   " : "---";
                 bottom.append(south_boundary).append("+");
             }
             output.append(top).append("\n");

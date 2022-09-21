@@ -24,11 +24,11 @@ public class BinaryTree implements IMazeGenerator {
     }
     private List<Cell> getNeighbours(Cell cell) {
         List<Cell> neighbours = new ArrayList<>();
-        if (cell.north != null) {
-            neighbours.add(cell.north);
+        if (cell.getNorth() != null) {
+            neighbours.add(cell.getNorth());
         }
-        if (cell.east != null) {
-            neighbours.add(cell.east);
+        if (cell.getEast() != null) {
+            neighbours.add(cell.getEast());
         }
         return neighbours;
     }

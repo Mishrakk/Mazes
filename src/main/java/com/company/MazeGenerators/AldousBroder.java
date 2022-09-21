@@ -12,7 +12,7 @@ public class AldousBroder implements IMazeGenerator {
         int unvisited = grid.size() - 1;
         while (unvisited > 0){
             Cell neighbour = cell.getRandomNeighbour();
-            if (neighbour.links.isEmpty()){
+            if (neighbour.getLinks().isEmpty()){
                 cell.linkCell(neighbour);
                 unvisited--;
             }

@@ -16,7 +16,7 @@ public class RecursiveBacktracker implements IMazeGenerator {
         stack.push(grid.getRandomCell());
         while(!stack.isEmpty()){
             var current = stack.peek();
-            var neighbours = current.getNeighbours().stream().filter(n -> n.links.isEmpty()).toList();
+            var neighbours = current.getNeighbours().stream().filter(n -> n.getLinks().isEmpty()).toList();
             if (neighbours.isEmpty()){
                 stack.pop();
             } else {

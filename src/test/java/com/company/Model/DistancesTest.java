@@ -10,17 +10,17 @@ public class DistancesTest {
         Random random = new Random();
         Grid grid = new Grid(2,1, random);
         var cell = grid.getCellAt(0,0);
-        cell.linkCell(cell.east);
+        cell.linkCell(cell.getEast());
         var distances = new Distances(cell);
         Assert.assertEquals("Distance to root is zero", 0, distances.getDistanceTo(cell));
-        Assert.assertEquals("Distance to neighbour is one", 1, distances.getDistanceTo(cell.east));
+        Assert.assertEquals("Distance to neighbour is one", 1, distances.getDistanceTo(cell.getEast()));
     }
     @Test
     public void testMaxDistance(){
         Random random = new Random();
         Grid grid = new Grid(2,1, random);
         var cell = grid.getCellAt(0,0);
-        cell.linkCell(cell.east);
+        cell.linkCell(cell.getEast());
         var distances = new Distances(cell);
         Assert.assertEquals("Max distance is one", 1, distances.getMaxDistance());
     }

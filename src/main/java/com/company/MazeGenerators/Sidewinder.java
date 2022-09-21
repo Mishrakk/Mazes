@@ -18,18 +18,18 @@ public class Sidewinder implements IMazeGenerator {
             run.add(cell);
             if (shouldCloseRun(cell)){
                 Cell runMember = random.getRandomElement(run);
-                if(runMember.north != null){
-                    runMember.linkCell(runMember.north);
+                if(runMember.getNorth() != null){
+                    runMember.linkCell(runMember.getNorth());
                 }
                 run.clear();
             } else {
-                cell.linkCell(cell.east);
+                cell.linkCell(cell.getEast());
             }
         }
     }
     private boolean shouldCloseRun(Cell cell){
-        boolean atEasternBoundary = cell.east == null;
-        boolean atNorthernBoundary = cell.north == null;
+        boolean atEasternBoundary = cell.getEast() == null;
+        boolean atNorthernBoundary = cell.getNorth() == null;
         return atEasternBoundary || (!atNorthernBoundary && random.nextBoolean());
     }
 }

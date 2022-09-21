@@ -20,7 +20,7 @@ public class SidewinderTest {
         Grid grid = new Grid(100,100, random);
         var generator = new Sidewinder(random);
         generator.generate(grid);
-        var distances = grid.getCellAt(0,0).distances.getCellsDistances();
+        var distances = grid.getCellAt(0,0).getDistances().getCellsDistances();
         Assert.assertEquals("", grid.size(), distances.size());
     }
 }
