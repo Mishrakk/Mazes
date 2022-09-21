@@ -40,8 +40,8 @@ public class Grid implements Iterable<Cell> {
     }
 
     public Cell getRandomCell(){
-        int randomX = random.nextInt(width+1);
-        int randomY = random.nextInt(height+1);
+        int randomX = random.nextInt(width);
+        int randomY = random.nextInt(height);
         return getCellAt(randomX, randomY);
     }
 
