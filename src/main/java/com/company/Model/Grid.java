@@ -7,22 +7,32 @@ import lombok.*;
 
 @Getter @Setter
 public class Grid implements Iterable<Cell> {
-    private final int width;
-    private final int height;
+    protected int width;
+    protected int height;
     @Setter(AccessLevel.PRIVATE)
-    private Cell[][] cellsGrid;
-    private final Random random;
+    protected Cell[][] cellsGrid;
+    protected Random random;
+
+    protected Grid(){}
 
     public Grid(int width, int height, Random rand){
         this.width = width;
         this.height = height;
         random = rand;
         cellsGrid = new Cell[this.width][this.height];
+        prepareGrid();
+        prepareCells();
+    }
+
+    protected void prepareGrid(){
         for (int x = 0; x< this.width; x++){
             for (int y = 0; y< this.height; y++){
                 cellsGrid[x][y] = new Cell(x, y, random);
             }
         }
+    }
+
+    protected void prepareCells() {
         for (Cell cell : this){
             cell.setNorth(getCellAt(cell.getX(),cell.getY() - 1));
             cell.setSouth(getCellAt(cell.getX(), cell.getY() + 1));
@@ -60,11 +70,16 @@ public class Grid implements Iterable<Cell> {
             for (int x = 0; x < width; x++)
             {
                 Cell cell = cellsGrid[x][y];
-                String body = " " + contentsOf(cell) + " ";
-                String east_boundary = cell.isLinked(cell.getEast()) ? " " : "|";
-                top.append(body).append(east_boundary);
-                String south_boundary = cell.isLinked(cell.getSouth()) ? "   " : "---";
-                bottom.append(south_boundary).append("+");
+                if (cell == null){
+                    top.append("   |");
+                    bottom.append("---+");
+                } else {
+                    String body = " " + contentsOf(cell) + " ";
+                    String east_boundary = cell.isLinked(cell.getEast()) ? " " : "|";
+                    top.append(body).append(east_boundary);
+                    String south_boundary = cell.isLinked(cell.getSouth()) ? "   " : "---";
+                    bottom.append(south_boundary).append("+");
+                }
             }
             output.append(top).append("\n");
             output.append(bottom).append("\n");

@@ -9,7 +9,7 @@ public class WilsonsTest {
     @Test
     public void testEveryCellIsAccessible(){
         Random random = new Random();
-        Grid grid = new Grid(100,100, random);
+        Grid grid = new Grid(10,10, random);
         var generator = new Wilsons(random);
         generator.generate(grid);
         var distances = grid.getCellAt(0,0).getDistances().getCellsDistances();

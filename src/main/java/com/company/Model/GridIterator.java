@@ -9,22 +9,29 @@ public class GridIterator implements Iterator<Cell> {
     private final Grid grid;
     private int x = 0;
     private int y = 0;
-    private Cell current;
+    private int count = 0;
 
     @Override
     public boolean hasNext() {
-        return y * grid.getWidth() + x < grid.size();
+        return count < grid.size();
     }
 
     @Override
     public Cell next() {
-        current = grid.getCellAt(x, y);
-        if (x + 1 < grid.getWidth()){
-            x++;
-        } else {
-            x = 0;
-            y++;
+        if (!hasNext()){
+            return null;
         }
+        Cell current;
+        do {
+            current = grid.getCellAt(x, y);
+            if (x + 1 < grid.getWidth()){
+                x++;
+            } else {
+                x = 0;
+                y++;
+            }
+        } while (current == null);
+        count++;
         return current;
     }
 }

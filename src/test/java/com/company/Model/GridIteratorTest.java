@@ -63,4 +63,18 @@ public class GridIteratorTest {
         Assert.assertEquals("There are exactly four elements we iterate over", 4, list.size());
         Assert.assertTrue("Cells are in proper order", list.get(2) == grid.getCellAt(0,1) && list.get(3) == grid.getCellAt(1,1));
     }
+
+    @Test
+    public void testMaskedGrid(){
+        Random random = new Random();
+        Mask mask = new Mask(3, 1, random);
+        mask.setCellAt(1, 0, false);
+        Grid grid = new MaskedGrid(mask, random);
+        GridIterator gridIterator = new GridIterator(grid);
+
+        Assert.assertTrue("There is next element in initialized collection", gridIterator.hasNext());
+        Assert.assertEquals("First element is equal to grid[0][0]", grid.getCellAt(0,0), gridIterator.next());
+        Assert.assertEquals("Second element is equal to grid[0][2]", grid.getCellAt(2,0), gridIterator.next());
+        Assert.assertFalse("There are only two elements in collection", gridIterator.hasNext());
+    }
 }
