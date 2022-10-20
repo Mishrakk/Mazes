@@ -12,7 +12,7 @@ public class RandomTest {
     @Test
     public void testGetRandomElement(){
         Random random = new Random();
-        List<Cell> list= new ArrayList<Cell>();
+        List<Cell> list= new ArrayList<>();
         Cell cell = new Cell(1,2, random);
         list.add(cell);
         Assert.assertEquals(cell, random.getRandomElement(list));

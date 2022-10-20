@@ -11,6 +11,7 @@ public class Mask {
     private final Random random;
 
     record Point(int x, int y) {
+
     }
 
     public Mask(int width, int height, Random random){
